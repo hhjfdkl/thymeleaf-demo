@@ -1,0 +1,13 @@
+# Define default behaviors for files with specific extensions
+*.java text eol=lf
+*.xml text eol=lf
+*.properties text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+
+# Ensure that IDE project files are treated as binary (they should not be merged)
+.idea/* binary
+
+# End of file
