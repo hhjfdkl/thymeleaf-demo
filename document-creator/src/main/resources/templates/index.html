@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mock Website Homepage</title>
+  <link rel="stylesheet" th:href="@{/style.css}" href="/style.css">
+  <style>
+    
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="nav-left">
+      <a href="#"><strong>MyMockSite</strong></a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <form action="/search" method="get" style="display:inline;">
+            <input type="text" name="query" placeholder="Search..." required>
+            <button type="submit">Go</button>
+        </form>
+      </nav>
+    
+    </div>
+    <div class="nav-right">
+      <button onclick="alert('Redirect to login page')">Login</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to MyMockSite</h1>
+    <p>Your go-to platform for everything awesome. Start exploring now!</p>
+    <button onclick="alert('Go to homepage')">Go to Home Page</button>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 MyMockSite. All rights reserved.
+  </footer>
+
+</body>
+</html>

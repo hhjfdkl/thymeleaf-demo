@@ -29,7 +29,9 @@ public class PersonController {
         return "people";
     }
 
-    @GetMapping("/{value}")
+    //added val in front because this was conflicting with static resources.
+    //apparently this is a feature of Spring routing
+    @GetMapping("/val/{value}")
     public String getPage(Model model, @PathVariable String value)
     {
         model.addAttribute("pageName", value);
@@ -38,7 +40,7 @@ public class PersonController {
         return "info";
     }
 
-    @GetMapping("/test")
+    @GetMapping("/val/test")
     public String test(Model model)
     {
         model.addAttribute("content", "Getting here was successful! No conflicts with our value-mapped endpoint!");
