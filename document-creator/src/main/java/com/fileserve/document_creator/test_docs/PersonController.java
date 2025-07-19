@@ -43,7 +43,7 @@ public class PersonController {
     @GetMapping("/val/test")
     public String test(Model model)
     {
-        model.addAttribute("content", "Getting here was successful! No conflicts with our value-mapped endpoint!");
+        model.addAttribute("mainFragment", "Getting here was successful! No conflicts with our value-mapped endpoint!");
         return "test";
     }
 }

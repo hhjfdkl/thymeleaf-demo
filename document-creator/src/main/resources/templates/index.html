@@ -12,36 +12,9 @@
 <body>
 
   <!-- Navigation Bar -->
-  <header>
-    <div class="nav-left">
-      <a href="#"><strong>MyMockSite</strong></a>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <form action="/search" method="get" style="display:inline;">
-            <input type="text" name="query" placeholder="Search..." required>
-            <button type="submit">Go</button>
-        </form>
-      </nav>
-    
-    </div>
-    <div class="nav-right">
-      <button onclick="alert('Redirect to login page')">Login</button>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Welcome to MyMockSite</h1>
-    <p>Your go-to platform for everything awesome. Start exploring now!</p>
-    <button onclick="alert('Go to homepage')">Go to Home Page</button>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 MyMockSite. All rights reserved.
-  </footer>
+  <div th:each="fragName : ${fragments}">
+    <div th:insert="~{fragments :: ${fragName}}"></div>
+  </div>
 
 </body>
 </html>

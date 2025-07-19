@@ -5,6 +5,21 @@
     <title>test</title>
 </head>
 <body>
-<p th:text="${content}"/>
+<!--This works, but if the other fragments don't work, it'll just pull
+the full fragments.html parts-->
+<!--
+<div th:insert="~{fragments :: ${navFragment}}"></div>
+<div th:insert="~{fragments :: ${heroFragment}}"></div>
+<div th:insert="~{fragments :: ${mainFragment}}"></div>
+<div th:insert="~{fragments :: ${footerFragment}}"></div>
+-->
+
+<!--Here's the correct way to do it-->
+<div th:each="fragName : ${inputFragments}">
+        <div th:insert="~{fragments :: ${fragName}}"></div>
+</div>
+
+
+
 </body>
 </html>

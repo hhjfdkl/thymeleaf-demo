@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Fragments</title>
+</head>
+<body>
+<!-- 🧩 Named fragment -->
+    <div th:fragment="welcomeCard">
+        <section class="card">
+            <h3>Welcome</h3>
+            <p>This is a reusable card fragment.</p>
+        </section>
+    </div>
+
+<!-- Website's footer -->
+    <div th:fragment="footer">
+        <footer>
+            <p>&copy; 2025 My Website</p>
+        </footer>
+    </div>
+
+<!--Navigation bar (likely doesn't need to be a fragment)-->
+    <div th:fragment="navigation-bar">
+        <header>
+            <div class="nav-left">
+                <a href="#"><strong>MyMockSite</strong></a>
+                <nav>
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                    <form action="/search" method="get" style="display:inline;">
+                        <input type="text" name="query" placeholder="Search..." required>
+                        <button type="submit">Go</button>
+                    </form>
+                </nav>
+
+            </div>
+            <div class="nav-right">
+                <button onclick="alert('Redirect to login page')">Login</button>
+            </div>
+        </header>
+    </div>
+
+<!--Hero for main page (optional)-->
+    <div th:fragment="hero">
+        <section class="hero">
+            <h1>Welcome to MyMockSite</h1>
+            <p>Your go-to platform for everything awesome. Start exploring now!</p>
+            <button onclick="alert('Go to homepage')">Go to Home Page</button>
+        </section>
+    </div>
+
+<!--Front page card grid. Could get broken into different fragments-->
+    <div th:fragment="card-front-page">
+        <main>
+            <section class="content">
+                <h2>Latest Updates</h2>
+
+                <div class="card-grid">
+                    <article class="card">
+                        <h3>Welcome to Our Website</h3>
+                        <p>This is a sample content block where you can introduce users to your app, share updates, or provide helpful links.</p>
+                        <a href="#" class="button">Learn More</a>
+                    </article>
+
+                    <article class="card">
+                        <h3>Getting Started</h3>
+                        <p>New here? Get started by creating an account and exploring the features we offer for registered users.</p>
+                        <a href="/register" class="button">Sign Up</a>
+                    </article>
+
+                    <article class="card">
+                        <h3>Contact Support</h3>
+                        <p>If you have any questions or feedback, don't hesitate to reach out to our team for help.</p>
+                        <a href="/contact" class="button">Contact Us</a>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>

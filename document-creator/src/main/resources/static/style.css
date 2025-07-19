@@ -90,3 +90,46 @@ nav button {
 nav button:hover {
   background-color: #0056b3;
 }
+
+main {
+  padding: 2rem;
+  background-color: #ffffff;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.card-grid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  flex: 1 1 250px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card .button {
+  display: inline-block;
+  margin-top: 1rem;
+  background: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.card .button:hover {
+  background: #0056b3;
+}
