@@ -12,6 +12,11 @@
         </section>
     </div>
 
+<!-- Welcome with username -->
+<div th:fragment="greeting(username)">
+    <p>Hello, <span th:text="${username}">User</span>!</p>
+</div>
+
 <!-- Website's footer -->
     <div th:fragment="footer">
         <footer>

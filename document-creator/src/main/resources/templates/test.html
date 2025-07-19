@@ -19,6 +19,8 @@ the full fragments.html parts-->
         <div th:insert="~{fragments :: ${fragName}}"></div>
 </div>
 
+<div th:replace="fragments :: greeting(${username})"></div>
+
 
 
 </body>

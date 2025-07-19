@@ -31,19 +31,8 @@ public class PrimaryController
     public String testCall(Model model)
     {
 
-//        model.addAttribute("navFragment", "fragments :: navigation-bar");
 
-        List<String> fragments = List.of(
-                  "welcomeCard"
-                , "welcomeCard"
-                , "footer"
-
-                , "navigation-bar"
-                , "hero"
-                , "welcomeCard"
-        );
-        model.addAttribute("inputFragments", fragments);
-
+        model.addAttribute("username", "Bill");
 
         return "test";
 
