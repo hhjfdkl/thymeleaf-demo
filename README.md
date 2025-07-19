@@ -123,7 +123,7 @@ If you're doing Thymeleaf + plain JavaScript, UX could be harmed for highly dyna
 
 # Summary
 
-Ultimately, Thymeleaf is great for small-mid sized web applications, particularly web apps with significantly more user read-only access than user write access, or apps that require real-time updates for the user to see
+Ultimately, Thymeleaf is great for small-mid sized web applications, particularly web apps with significantly more user read-only access than user write access, or apps that do not require many real-time updates for the user to see
 - The example from my project is "Search-as-you-go". It will be more difficult to implement a live search *in the search bar* (think how some applications display results as you type) unless we use a front-end framework. However, Thymeleaf handles searches just fine; you just have to call the server to produce the updated document (or from UX - refresh the page)
 
 > As an aside, apparently Thymeleaf is good for search engine optimization since it produces fully-rendered HTML that a search engine would see (and cares about)
