@@ -17,13 +17,14 @@
     <p>Hello, <span th:text="${username}">User</span>!</p>
 </div>
 
-<!-- Website's footer -->
-    <div th:fragment="footer">
+<!-- Website's footer : This doesn't style when used as a fragment??-->
+<!--
+    <footer th:fragment="footer">
         <footer>
-            <p>&copy; 2025 My Website</p>
+            <p>© 2025 MyMockSite. All rights reserved.</p>
         </footer>
-    </div>
-
+    </footer>
+-->
 <!--Navigation bar (likely doesn't need to be a fragment)-->
     <div th:fragment="navigation-bar">
         <header>
@@ -62,26 +63,41 @@
                 <h2>Latest Updates</h2>
 
                 <div class="card-grid">
-                    <article class="card">
-                        <h3>Welcome to Our Website</h3>
-                        <p>This is a sample content block where you can introduce users to your app, share updates, or provide helpful links.</p>
-                        <a href="#" class="button">Learn More</a>
+
+                    <article class="card" th:each="cardName : ${cards}">
+                            <div class="card" th:replace="~{fragments :: ${cardName}}"></div>
                     </article>
 
-                    <article class="card">
-                        <h3>Getting Started</h3>
-                        <p>New here? Get started by creating an account and exploring the features we offer for registered users.</p>
-                        <a href="/register" class="button">Sign Up</a>
-                    </article>
-
-                    <article class="card">
-                        <h3>Contact Support</h3>
-                        <p>If you have any questions or feedback, don't hesitate to reach out to our team for help.</p>
-                        <a href="/contact" class="button">Contact Us</a>
-                    </article>
                 </div>
+
             </section>
         </main>
+    </div>
+
+<!--Cards for display-->
+<!--I'll hard-code them for now, but this should be one fragment-->
+    <div th:fragment="card1">
+
+            <h3>Welcome to Our Website</h3>
+            <p>This is a sample content block where you can introduce users to your app, share updates, or provide helpful links.</p>
+            <a href="#" class="button">Learn More</a>
+
+    </div>
+
+    <div th:fragment="card2">
+<!--        <article class="card">-->
+            <h3>Getting Started</h3>
+            <p>New here? Get started by creating an account and exploring the features we offer for registered users.</p>
+            <a href="/register" class="button">Sign Up</a>
+<!--        </article>-->
+    </div>
+
+    <div th:fragment="card3">
+<!--        <article class="card">-->
+            <h3>Contact Support</h3>
+            <p>If you have any questions or feedback, don't hesitate to reach out to our team for help.</p>
+            <a href="/contact" class="button">Contact Us</a>
+<!--        </article>-->
     </div>
 
 </body>

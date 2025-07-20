@@ -13,8 +13,10 @@
 
   <!-- Navigation Bar -->
   <div th:each="fragName : ${fragments}">
-    <div th:insert="~{fragments :: ${fragName}}"></div>
+    <div th:replace="~{fragments :: ${fragName}}"></div>
   </div>
 
+  <!--doesn't properly style the footer when the fragment is injected.-->
+  <footer>© 2025 MyMockSite. All rights reserved.</footer>
 </body>
 </html>

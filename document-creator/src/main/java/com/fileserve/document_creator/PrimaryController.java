@@ -18,9 +18,10 @@ public class PrimaryController
               "navigation-bar"
             , "hero"
             , "card-front-page"
-            , "footer"
         );
+        List<String> cards = List.of("card1", "card2", "card3");
         model.addAttribute("fragments", fragments);
+        model.addAttribute("cards", cards);
         return "index";
     }
 
@@ -32,8 +33,17 @@ public class PrimaryController
     {
 
 
-        model.addAttribute("username", "Bill");
+//        model.addAttribute("username", "Bill");
 
+        List<String> fragments = List.of(
+//                "navigation-bar"
+//                , "hero"
+//                , "card-front-page"
+//                ,
+                "footer"
+                , "footer"
+        );
+        model.addAttribute("cards", fragments);
         return "test";
 
 

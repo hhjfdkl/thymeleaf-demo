@@ -15,12 +15,16 @@ the full fragments.html parts-->
 -->
 
 <!--Here's the correct way to do it-->
+<!--
 <div th:each="fragName : ${inputFragments}">
         <div th:insert="~{fragments :: ${fragName}}"></div>
 </div>
 
 <div th:replace="fragments :: greeting(${username})"></div>
+-->
 
+
+<div th:replace="~{fragments :: card-front-page}"></div>
 
 
 </body>
