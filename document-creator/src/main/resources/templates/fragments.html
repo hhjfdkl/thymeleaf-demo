@@ -56,7 +56,7 @@
         </section>
     </div>
 
-<!--Front page card grid. Could get broken into different fragments-->
+<!--Card grid-->
     <div th:fragment="card-front-page">
         <main>
             <section class="content">
@@ -64,8 +64,8 @@
 
                 <div class="card-grid">
 
-                    <article class="card" th:each="cardName : ${cards}">
-                            <div class="card" th:replace="~{fragments :: ${cardName}}"></div>
+                    <article class="card" th:each="card : ${cards}">
+                            <div th:replace="~{fragments :: ${card.name}}"></div>
                     </article>
 
                 </div>
@@ -74,30 +74,43 @@
         </main>
     </div>
 
-<!--Cards for display-->
-<!--I'll hard-code them for now, but this should be one fragment-->
-    <div th:fragment="card1">
+<!--Dynamically built cards-->
+<!--
+This here only works if your naming convention matches (like above - "card")
+This means we can only use this anywhere "card" is the variable name
 
+This could  break if we just use it as a normal fragment, however
+So we have to put ?: as a "maybe" value - maybe this is here, but if it's
+not, we have defaults show up
+
+Additionally, what if we call this fragment with string custom-card?
+
+If we pass in a plain string, this doesn't protect the template.
+I think we may need to ensure only Card objects get put in at the Java layer
+-->
+    <div th:fragment="custom-card">
+        <h3 th:text="${card.header ?: 'Default Title'}">Card Title</h3>
+        <p th:text="${card.content ?: 'Default Content'}">Card Content</p>
+    </div>
+
+
+<!--Pre-built cards-->
+    <div th:fragment="greeting-card">
             <h3>Welcome to Our Website</h3>
             <p>This is a sample content block where you can introduce users to your app, share updates, or provide helpful links.</p>
             <a href="#" class="button">Learn More</a>
-
     </div>
 
-    <div th:fragment="card2">
-<!--        <article class="card">-->
+    <div th:fragment="start-card">
             <h3>Getting Started</h3>
             <p>New here? Get started by creating an account and exploring the features we offer for registered users.</p>
             <a href="/register" class="button">Sign Up</a>
-<!--        </article>-->
     </div>
 
-    <div th:fragment="card3">
-<!--        <article class="card">-->
+    <div th:fragment="contact-card">
             <h3>Contact Support</h3>
             <p>If you have any questions or feedback, don't hesitate to reach out to our team for help.</p>
             <a href="/contact" class="button">Contact Us</a>
-<!--        </article>-->
     </div>
 
 </body>
