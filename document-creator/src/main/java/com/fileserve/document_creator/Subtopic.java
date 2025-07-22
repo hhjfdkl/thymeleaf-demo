@@ -3,9 +3,9 @@ package com.fileserve.document_creator;
 public class Subtopic extends Fragment
 {
     private String title;
-    private String[] content;
+    private Content[] content;
 
-    public Subtopic(String title, String[] content) {
+    public Subtopic(String title, Content[] content) {
         super("subtopic");
         this.title = title;
         this.content = content;
@@ -20,7 +20,7 @@ public class Subtopic extends Fragment
         return title;
     }
 
-    public String[] getContent() {
+    public Content[] getContent() {
         return content;
     }
 }

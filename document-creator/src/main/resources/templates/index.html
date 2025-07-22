@@ -11,6 +11,12 @@
 </head>
 <body>
 
+<!--
+7/22/25 : Since we're looking at "fragment" here, we need to consistently
+use "fragment" downstream to have the most flexible usage
+This still works even when all our fragments are constantly using "fragment" to look up values
+It won't break or overwrite our values since "fragments" is what index is looking at
+-->
   <!-- Navigation Bar -->
   <div th:each="fragment : ${fragments}">
     <div th:replace="~{fragments :: ${fragment.name}}"></div>

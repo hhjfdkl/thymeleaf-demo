@@ -5,6 +5,7 @@
 </head>
 <body>
 <!-- 🧩 Named fragment -->
+<!--TEST-->
     <div th:fragment="welcomeCard">
         <section class="card">
             <h3>Welcome</h3>
@@ -13,6 +14,7 @@
     </div>
 
 <!-- Welcome with username -->
+<!--TEST-->
 <div th:fragment="greeting(username)">
     <p>Hello, <span th:text="${username}">User</span>!</p>
 </div>
@@ -26,6 +28,7 @@
     </footer>
 -->
 <!--Navigation bar (likely doesn't need to be a fragment)-->
+<!--STATIC (for now)-->
     <div th:fragment="navigation-bar">
         <header>
             <div class="nav-left">
@@ -48,6 +51,7 @@
     </div>
 
 <!--Hero for main page (optional)-->
+<!--STATIC-->
     <div th:fragment="hero">
         <section class="hero">
             <h1>Welcome to MyMockSite</h1>
@@ -57,6 +61,7 @@
     </div>
 
 <!--Card grid-->
+<!--NEEDS UPDATE - MATCH INDEX NAMING CONVENTIONS-->
     <div th:fragment="card-front-page">
         <main>
             <section class="content">
@@ -88,6 +93,7 @@ Additionally, what if we call this fragment with string custom-card?
 If we pass in a plain string, this doesn't protect the template.
 I think we may need to ensure only Card objects get put in at the Java layer
 -->
+<!--NEEDS UPDATE - MATCH INDEX NAMING CONVENTIONS-->
     <div th:fragment="custom-card">
         <h3 th:text="${card.header ?: 'Default Title'}">Card Title</h3>
         <p th:text="${card.content ?: 'Default Content'}">Card Content</p>
@@ -95,35 +101,37 @@ I think we may need to ensure only Card objects get put in at the Java layer
 
 
 <!--Pre-built cards-->
+<!--STATIC-->
     <div th:fragment="greeting-card">
             <h3>Welcome to Our Website</h3>
             <p>This is a sample content block where you can introduce users to your app, share updates, or provide helpful links.</p>
             <a href="#" class="button">Learn More</a>
     </div>
 
+<!--STATIC-->
     <div th:fragment="start-card">
             <h3>Getting Started</h3>
             <p>New here? Get started by creating an account and exploring the features we offer for registered users.</p>
             <a href="/register" class="button">Sign Up</a>
     </div>
 
+<!--STATIC-->
     <div th:fragment="contact-card">
             <h3>Contact Support</h3>
             <p>If you have any questions or feedback, don't hesitate to reach out to our team for help.</p>
             <a href="/contact" class="button">Contact Us</a>
     </div>
 
-<!--Dynamically populated table-->
-
 
 <!--Master container for the page (check if needed)-->
+<!--NEEDS UPDATE - MATCH INDEX NAMING CONVENTIONS-->
 <div th:fragment="topic">
     <main>
         <section class="content">
             <h1 th:text="${fragment.topic ?: 'No Topic'}">Topic Name</h1>
             <div class=""><!--Needs new class name for style-->
-                <article class="" th:each="subtopic : ${fragment.subtopics}">
-                    <div th:replace="~{fragments :: ${subtopic.name}}"></div>
+                <article class="" th:each="fragment : ${fragment.subtopics}">
+                    <div th:replace="~{fragments :: ${fragment.name}}"></div>
                 </article>
             </div>
         </section>
@@ -131,14 +139,36 @@ I think we may need to ensure only Card objects get put in at the Java layer
 </div>
 
 <!--Containers for topics-->
+<!--NEEDS UPDATE - MATCH INDEX NAMING CONVENTIONS-->
 <div th:fragment="subtopic">
-    <h2 th:text="${subtopic.title ?: 'No Title'}"></h2>
-    <div th:each="content : ${subtopic.content}">
-        <p th:text="${content}"></p>
+    <h2 th:text="${fragment.title ?: 'No Title'}"></h2>
+    <div th:each="fragment : ${fragment.content}">
+        <div th:replace="~{fragments :: ${fragment.name}}"></div>
     </div>
 </div>
 
 
+<!--Dynamically populated table-->
+
+
+
+<!--Ordered List-->
+<!--NEEDS UPDATE - MATCH INDEX NAMING CONVENTIONS-->
+<ol th:fragment="ordered-list">
+    <li th:each="item : ${fragment.content}" th:text="${item ?: 'Unnamed Item'}"></li>
+</ol>
+
+
+<!--Unordered List-->
+<!--NEEDS UPDATE - MATCH INDEX NAMING CONVENTIONS-->
+<ul th:fragment="unordered-list">
+    <li th:each="item : ${fragment.content}" th:text="${item ?: 'Unnamed Item'}"></li>
+</ul>
+
+
+<!--Paragraph-->
+<!--NEEDS UPDATE - MATCH INDEX NAMING CONVENTIONS-->
+<p th:fragment="paragraph" th:text="${fragment.content}"></p>
 
 
 </body>

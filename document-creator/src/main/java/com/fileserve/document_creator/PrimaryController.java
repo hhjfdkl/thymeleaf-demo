@@ -70,22 +70,29 @@ public class PrimaryController
         String s2 = new LoremIpsum().getWords(175);
         String s3 = new LoremIpsum().getWords(689);
         String s4 = new LoremIpsum().getWords(1000);
+        ListContent lc1 = new ListContent(true, titles);
+        ListContent lc2 = new ListContent(false, titles);
 
-        String[] topics1 = {s1, s2, s3, s4};
-        String[] topics2 = {s2};
-        String[] topics3 = {s4, s2, s4};
+        Content[] topics1 = {new ParagraphContent(s1), lc1, lc2, new ParagraphContent(s2), new ParagraphContent(s3), new ParagraphContent(s4)};
+        Content[] topics2 = {lc1, new ParagraphContent(s2)};
+        Content[] topics3 = {new ParagraphContent(s4), new ParagraphContent(s2), lc2, new ParagraphContent(s4)};
 
         Subtopic st1 = new Subtopic(titles[0], topics1);
         Subtopic st2 = new Subtopic(titles[1], topics2);
         Subtopic st3 = new Subtopic(titles[2], topics3);
 
         Subtopic[] subtopics = {st1, st2, st3};
+        Topic t1 = new Topic(titles[3], subtopics);
 
         List<Fragment> page = List.of(
-                new Topic(
-                        titles[3]
-                        , subtopics
-                )
+                  new Fragment("navigation-bar")
+                , t1
+                , lc1
+                , new Fragment("hero")
+                , t1
+                , lc2
+                , t1
+                , st2
         );
         model.addAttribute("fragments", page);
         return "index";

@@ -11,6 +11,4 @@ public class Fragment
     public String getName() {
         return name;
     }
-
-
 }
