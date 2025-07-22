@@ -61,7 +61,6 @@
     </div>
 
 <!--Card grid-->
-<!--NEEDS UPDATE - MATCH INDEX NAMING CONVENTIONS-->
     <div th:fragment="card-front-page">
         <main>
             <section class="content">
@@ -69,8 +68,8 @@
 
                 <div class="card-grid">
 
-                    <article class="card" th:each="card : ${cards}">
-                            <div th:replace="~{fragments :: ${card.name}}"></div>
+                    <article class="card" th:each="fragment : ${cards}">
+                            <div th:replace="~{fragments :: ${fragment.name}}"></div>
                     </article>
 
                 </div>
@@ -93,10 +92,9 @@ Additionally, what if we call this fragment with string custom-card?
 If we pass in a plain string, this doesn't protect the template.
 I think we may need to ensure only Card objects get put in at the Java layer
 -->
-<!--NEEDS UPDATE - MATCH INDEX NAMING CONVENTIONS-->
     <div th:fragment="custom-card">
-        <h3 th:text="${card.header ?: 'Default Title'}">Card Title</h3>
-        <p th:text="${card.content ?: 'Default Content'}">Card Content</p>
+        <h3 th:text="${fragment.header ?: 'Default Title'}">Card Title</h3>
+        <p th:text="${fragment.content ?: 'Default Content'}">Card Content</p>
     </div>
 
 
@@ -124,7 +122,6 @@ I think we may need to ensure only Card objects get put in at the Java layer
 
 
 <!--Master container for the page (check if needed)-->
-<!--NEEDS UPDATE - MATCH INDEX NAMING CONVENTIONS-->
 <div th:fragment="topic">
     <main>
         <section class="content">
@@ -139,7 +136,6 @@ I think we may need to ensure only Card objects get put in at the Java layer
 </div>
 
 <!--Containers for topics-->
-<!--NEEDS UPDATE - MATCH INDEX NAMING CONVENTIONS-->
 <div th:fragment="subtopic">
     <h2 th:text="${fragment.title ?: 'No Title'}"></h2>
     <div th:each="fragment : ${fragment.content}">
@@ -153,21 +149,18 @@ I think we may need to ensure only Card objects get put in at the Java layer
 
 
 <!--Ordered List-->
-<!--NEEDS UPDATE - MATCH INDEX NAMING CONVENTIONS-->
 <ol th:fragment="ordered-list">
     <li th:each="item : ${fragment.content}" th:text="${item ?: 'Unnamed Item'}"></li>
 </ol>
 
 
 <!--Unordered List-->
-<!--NEEDS UPDATE - MATCH INDEX NAMING CONVENTIONS-->
 <ul th:fragment="unordered-list">
     <li th:each="item : ${fragment.content}" th:text="${item ?: 'Unnamed Item'}"></li>
 </ul>
 
 
 <!--Paragraph-->
-<!--NEEDS UPDATE - MATCH INDEX NAMING CONVENTIONS-->
 <p th:fragment="paragraph" th:text="${fragment.content}"></p>
 
 
