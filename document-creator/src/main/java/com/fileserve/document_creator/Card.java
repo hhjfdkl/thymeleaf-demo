@@ -1,41 +1,29 @@
 package com.fileserve.document_creator;
 
-public class Card
+public class Card extends Fragment
 {
-    private String name;
     private String header;
     private String content;
 
     public Card(String name, String header, String content) {
-        this.name = name;
+        //in this demo, the card names have some pre-built cards saved in the html
+        //this is probably a design flaw?? Since normally the pre-set cards would be somewhere in the persistence layer
+        //should probably just set the specific fragment name in super constructor
+        super(name);
         this.header = header;
         this.content = content;
     }
     public Card(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+        super(name);
     }
 
     public String getHeader() {
         return header;
     }
 
-    public void setHeader(String header) {
-        this.header = header;
-    }
 
     public String getContent() {
         return content;
     }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
 }

@@ -12,11 +12,11 @@
 <body>
 
   <!-- Navigation Bar -->
-  <div th:each="fragName : ${fragments}">
-    <div th:replace="~{fragments :: ${fragName}}"></div>
+  <div th:each="fragment : ${fragments}">
+    <div th:replace="~{fragments :: ${fragment.name}}"></div>
   </div>
 
   <!--doesn't properly style the footer when the fragment is injected.-->
-  <footer>© 2025 MyMockSite. All rights reserved.</footer>
+<!--  <footer>© 2025 MyMockSite. All rights reserved.</footer>-->
 </body>
 </html>

@@ -113,5 +113,33 @@ I think we may need to ensure only Card objects get put in at the Java layer
             <a href="/contact" class="button">Contact Us</a>
     </div>
 
+<!--Dynamically populated table-->
+
+
+<!--Master container for the page (check if needed)-->
+<div th:fragment="topic">
+    <main>
+        <section class="content">
+            <h1 th:text="${fragment.topic ?: 'No Topic'}">Topic Name</h1>
+            <div class=""><!--Needs new class name for style-->
+                <article class="" th:each="subtopic : ${fragment.subtopics}">
+                    <div th:replace="~{fragments :: ${subtopic.name}}"></div>
+                </article>
+            </div>
+        </section>
+    </main>
+</div>
+
+<!--Containers for topics-->
+<div th:fragment="subtopic">
+    <h2 th:text="${subtopic.title ?: 'No Title'}"></h2>
+    <div th:each="content : ${subtopic.content}">
+        <p th:text="${content}"></p>
+    </div>
+</div>
+
+
+
+
 </body>
 </html>
